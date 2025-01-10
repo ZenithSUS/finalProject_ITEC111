@@ -41,6 +41,12 @@ header {
     display: flex;
     justify-content: space-between;
     background-color: var(--secondary-color);
+
+    .user-auth, .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
 }
 
 .modal-notification {
