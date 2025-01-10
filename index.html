@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="global.css">
+    <title>Message Saver</title>
+    <script type="text/javascript" src="scripts/notification.js"></script>
+</head>
+<body>
+    <header>
+        <h2 id="usernameDisplay"></h2>
+        <button id="logout">Logout</button>
+    </header>
+
+    <div class="modal-notification" id="modal-notification">
+        <div class="modal-content" id="modal-content"></div>
+    </div>
+
+    <script type="text/javascript">
+        const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+        const id = userInfo ? userInfo.id : null;
+        const username = userInfo ? userInfo.username : 'Guest';
+        document.getElementById('usernameDisplay').textContent = username;
+
+        if(id === null) {
+            window.location.href = 'auth/login.html';
+        }
+    </script>
+    <script type="text/javascript" src="scripts/auth/logout.js"></script>
+</body>
+</html>

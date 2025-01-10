@@ -1,0 +1,99 @@
+:root {
+    --primary-color: #141D2F;
+    --secondary-color: #1E2A47;
+    --button-color: #0079D3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    font-family: 'space mono', sans-serif;
+    color: white;
+}
+
+input {
+    color: black;
+}
+
+span {
+    color: red;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+body {
+    background-color: var(--primary-color);
+}
+
+button {
+    background-color: var(--button-color);
+    padding: 10px;
+    border-radius: 20px;
+    width: 100px;
+    cursor: pointer;
+}
+
+header {
+    width: 100%;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--secondary-color);
+}
+
+.modal-notification {
+    display: none;
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: column;
+    color: var(--dark-color);
+    z-index: 1;
+
+    .modal-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 5% auto 15% auto;
+        width: fit-content;
+        background-color: var(--primary-color);
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5), -4px -4px 4px rgba(0, 0, 0, 0.5);
+        padding: 2rem;
+        border-radius: 20px;
+        text-align: center;
+
+
+        /* Clear floats */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+          
+        
+        .cancelbtn {
+            background-color: var(--button-color);
+            color: var(--light-color);
+
+            &:hover {
+                background-color: var(--button-hover-color);
+                color: var(--dark-color);
+                transition: background-color 0.3s ease-in-out;
+            }
+        }
+        .confirmbtn {
+            background-color: #f44336;
+            color: var(--dark-color);
+            
+            &:hover {
+                background-color: var(--hover-color);
+                color: var(--dark-color);
+                transition: background-color 0.3s ease-in-out;
+            }
+        }
+    }
+}

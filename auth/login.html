@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="../styles/auth.css">
+    <title>Login</title>
+    <script type="text/javascript" src="../scripts/notification.js"></script>
+</head>
+<body>
+    <div class="modal-notification" id="modal-notification">
+        <div class="modal-content" id="modal-content"></div>
+    </div>
+
+    <div class="auth-container">
+        <form id="loginForm">
+            <h1>Login</h1>
+            <div class="input-field">
+                <label for="username">Username</label>
+                <input type="text" id="username">
+            </div>
+            <div class="input-field">
+                <label for="password">Password</label>
+                <input type="password" id="password">
+            </div>
+            <button type="submit">Login</button>
+            <span id="auth-status"></span>
+        </form>
+    </div>
+    <script type="text/javascript" src="../scripts/auth/login.js"></script>
+    <script type="text/javascript" src="../scripts/data/users.js"></script>
+    <script type="text/javascript" src="../scripts/cryptography/columnar.js"></script>
+</body>
+</html>
