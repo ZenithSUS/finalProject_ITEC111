@@ -62,3 +62,31 @@
     border-radius: 5px;
   }
 }
+
+/* Media Queries */
+
+@media (max-width: 915px) {
+  .main-content {
+    padding: 10px;
+    gap: 10px;
+    overflow-x: auto;
+
+    .button-container {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+  }
+
+  .decrypt-modal {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 10px;
+
+    input[type="text"] {
+      padding: 5px;
+      margin: 5px;
+    }
+  }
+
+}

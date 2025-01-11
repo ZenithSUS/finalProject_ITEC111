@@ -37,3 +37,17 @@
         }
     }
 }
+
+
+/* Media Queries */
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    .auth-container {
+        padding: 10px;
+        form {
+            width: 100%;
+        }
+    }
+}

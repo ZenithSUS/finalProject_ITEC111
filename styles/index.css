@@ -8,6 +8,10 @@
     background-color: var(--secondary-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5), 0px -4px 4px rgba(0, 0, 0, 0.5);
 
+    h1 {
+        text-align: center;
+    }
+
     .message {
         display: flex;
         align-items: center;
@@ -79,6 +83,32 @@
             display: flex;
             justify-content: center;
             gap: 10px;
+        }
+    }
+}
+
+/* Media Queries */
+
+@media (max-width: 915px) {
+    .main-content {
+        width: 100%;
+        overflow-x: auto;
+        flex-wrap: wrap;
+        gap: 10px;
+        .message {
+            flex-direction: column;
+        }
+    }
+
+    .message-options {
+        padding: 20px;
+        border-radius: 5px;
+
+        .button-container {
+            display: grid;
+            grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr);
+            gap: 5px;
+            
         }
     }
 }

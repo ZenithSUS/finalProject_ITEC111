@@ -116,6 +116,7 @@ const displayMessages = () => {
             <td>${message.otp}</td>
             <td>${DateFormat(message.date)}</td>
             <td>
+              <div class="button-options">
                 <button class="open-button" data-id="${
                   message.id
                 }">View</button>
@@ -125,6 +126,7 @@ const displayMessages = () => {
                 <button class="delete-button" data-id="${
                   message.id
                 }">Delete</button>
+              </div>
             </td>
         </tr>
     `
