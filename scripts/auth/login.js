@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const username = form.username.value;
-        const password = form.password.value;
+        const username = form.username.value.trim();
+        const password = form.password.value.trim();
         const foundUser = users.find(user => user.username === username);
 
         if (foundUser) {
