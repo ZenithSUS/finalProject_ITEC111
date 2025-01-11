@@ -1,57 +1,64 @@
 .main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: var(--secondary-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5), 0px -4px 4px rgba(0, 0, 0, 0.5);
+
+  .message-container {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    padding: 20px;
-    background-color: var(--secondary-color);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5), 0px -4px 4px rgba(0, 0, 0, 0.5);
+    flex-direction: column;
+    gap: 10px;
 
-    .message-container {
+    .message {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      h2 {
+        text-align: center;
+      }
+
+      .button-container {
         display: flex;
-        align-items: center;
         justify-content: center;
-        flex-direction: column;
         gap: 10px;
-
-        .message {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-
-            h2 {
-                text-align: center;
-            }
-
-            .button-container {
-                display: flex;
-                justify-content: center;
-                gap: 10px;
-            }
-        }
+      }
     }
+  }
+}
+
+.editInput {
+  padding: 10px;
+}
+
+.main-content.hidden {
+  display: none;
 }
 
 .decrypt-modal {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-    flex-direction: column;
-    color: var(--dark-color);
-    background-color: var(--primary-color);
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5), -4px -4px 4px rgba(0, 0, 0, 0.5);
-    padding: 2rem;
-    border-radius: 20px;
-    text-align: center;
-    z-index: 1;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  flex-direction: column;
+  color: var(--dark-color);
+  background-color: var(--primary-color);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5), -4px -4px 4px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  z-index: 1;
 
-    input[type="text"] {
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-
+  input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
 }

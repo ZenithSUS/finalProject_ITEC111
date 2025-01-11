@@ -1,150 +1,148 @@
 :root {
-    --primary-color: #141D2F;
-    --secondary-color: #1E2A47;
-    --button-color: #0079D3;
-    --button-hover-color: #0056b3;
+  --primary-color: #141d2f;
+  --secondary-color: #1e2a47;
+  --button-color: #0079d3;
+  --button-hover-color: #0056b3;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    border: none;
-    font-family: "space mono", sans-serif;
-    color: white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  font-family: "space mono", sans-serif;
+  color: white;
 }
 
 input {
-    color: black;
+  color: black;
 }
 
 span {
-    color: red;
-    font-weight: 600;
-    font-size: 12px;
-    letter-spacing: 2px;
-    padding-top: 5px;
+  color: red;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 2px;
+  padding-top: 5px;
 }
 
 body {
-    background-color: var(--primary-color);
+  background-color: var(--primary-color);
 }
 
 button {
-    background-color: var(--button-color);
-    padding: 10px;
-    border-radius: 20px;
-    width: 100px;
-    cursor: pointer;
+  background-color: var(--button-color);
+  padding: 10px;
+  border-radius: 20px;
+  width: 100px;
+  cursor: pointer;
 
-    &:hover {
-        transition: background-color 0.2s ease-in-out;
-        background-color: var(--button-hover-color);
-    }
+  &:hover {
+    transition: background-color 0.2s ease-in-out;
+    background-color: var(--button-hover-color);
+  }
 }
 
 a {
-    text-decoration: underline;
-    color: var(--button-color);
+  text-decoration: underline;
+  color: var(--button-color);
 
-    &:hover {
-        color: var(--button-hover-color);
-    }
+  &:hover {
+    color: var(--button-hover-color);
+  }
 }
 
 header {
-    width: 100%;
-    padding: 20px 20px;
+  width: 100%;
+  padding: 20px 20px;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--secondary-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5), 0px -4px 4px rgba(0, 0, 0, 0.5);
+
+  .user-auth {
     display: flex;
-    justify-content: space-between;
-    background-color: var(--secondary-color);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5), 0px -4px 4px rgba(0, 0, 0, 0.5);
+    align-items: center;
+    gap: 10px;
+    flex-direction: row-reverse;
+  }
 
-    .user-auth{
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        flex-direction: row-reverse;
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    text-decoration: none;
+
+    img {
+      width: 50px;
     }
+  }
 
-    .logo {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        cursor: pointer;
-        text-decoration: none;
-
-        img {
-            width: 50px;
-        }
-    }
-
-    h2 {
-        font-size: 1.25rem;
-    }
+  h2 {
+    font-size: 1.25rem;
+  }
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 20px 20px;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 20px;
+  gap: 20px;
 }
 
 .modal-notification {
-    display: none;
-    position: fixed;
-    top: 15%;
-    left: 50%;
-    transform: translateX(-50%);
+  display: none;
+  position: fixed;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  flex-direction: column;
+  color: var(--dark-color);
+  z-index: 1;
+
+  .modal-content {
+    position: relative;
+    display: flex;
     flex-direction: column;
-    color: var(--dark-color);
-    z-index: 1;
+    gap: 10px;
+    margin: 5% auto 15% auto;
+    width: fit-content;
+    background-color: var(--primary-color);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5), -4px -4px 4px rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
 
-    .modal-content {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        margin: 5% auto 15% auto;
-        width: fit-content;
-        background-color: var(--primary-color);
-        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5), -4px -4px 4px rgba(0, 0, 0, 0.5);
-        padding: 2rem;
-        border-radius: 20px;
-        text-align: center;
-
-
-        /* Clear floats */
-        .clearfix::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
-          
-        
-        .cancelbtn {
-            background-color: var(--button-color);
-            color: var(--light-color);
-
-            &:hover {
-                background-color: var(--button-hover-color);
-                color: var(--dark-color);
-                transition: background-color 0.3s ease-in-out;
-            }
-        }
-        .confirmbtn {
-            background-color: #f44336;
-            color: var(--dark-color);
-            
-            &:hover {
-                background-color: var(--hover-color);
-                color: var(--dark-color);
-                transition: background-color 0.3s ease-in-out;
-            }
-        }
+    /* Clear floats */
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
     }
+
+    .cancelbtn {
+      background-color: var(--button-color);
+      color: var(--light-color);
+
+      &:hover {
+        background-color: var(--button-hover-color);
+        color: var(--dark-color);
+        transition: background-color 0.3s ease-in-out;
+      }
+    }
+    .confirmbtn {
+      background-color: #f44336;
+      color: var(--dark-color);
+
+      &:hover {
+        background-color: var(--hover-color);
+        color: var(--dark-color);
+        transition: background-color 0.3s ease-in-out;
+      }
+    }
+  }
 }
