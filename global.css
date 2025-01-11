@@ -10,7 +10,7 @@
     padding: 0;
     box-sizing: border-box;
     border: none;
-    font-family: 'space mono', sans-serif;
+    font-family: "space mono", sans-serif;
     color: white;
 }
 
@@ -64,6 +64,7 @@ header {
         display: flex;
         align-items: center;
         gap: 10px;
+        flex-direction: row-reverse;
     }
 
     .logo {
@@ -76,6 +77,10 @@ header {
         img {
             width: 50px;
         }
+    }
+
+    h2 {
+        font-size: 1.25rem;
     }
 }
 

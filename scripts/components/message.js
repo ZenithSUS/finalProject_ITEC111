@@ -1,12 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const userInfo = localStorage.getItem('userInfo');
-    if (userInfo) {
-        const user = JSON.parse(userInfo);
-        document.getElementById('usernameDisplay').textContent = user.username;
-    } else {
-        window.location.href = `auth/login.html`;
-    }
-
     const urlParams = new URLSearchParams(window.location.search);
     const messageId = parseInt(urlParams.get('id'));
 
