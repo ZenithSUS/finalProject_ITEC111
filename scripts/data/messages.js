@@ -146,7 +146,7 @@ const displayMessage = (messageId) => {
            <p>Message By: ${message.username}</p>
            <p>OTP: ${message.otp}</p>
            <p>Date: ${DateFormat(message.date)}</p>
-           <strong>Open the message to decrypt</strong>
+           <strong style="text-align: center;">Open the message to decrypt</strong>
            <div class="button-container">
                 <button class="open-button" id="decrypt-button" data-id="${
                   message.id
