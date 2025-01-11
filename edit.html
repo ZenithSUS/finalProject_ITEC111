@@ -1,0 +1,55 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="styles/message.css">
+  <link rel="stylesheet" href="styles/table.css">
+  <link rel="icon" href="src/images/CyberGhost.jpg">
+  <title>CyberGhost</title>
+</head>
+
+<body>
+  <header>
+    <a href="index.html" target="_parent" class="logo">
+      <img src="src/images/icons8-hacker-64.png" alt="logo">
+      <h1>CyberGhost</h1>
+    </a>
+    <div class="user-auth">
+      <button id="logout">Logout</button>
+    </div>
+  </header>
+
+  <div class="modal-notification" id="modal-notification">
+    <div class="modal-content" id="modal-content"></div>
+  </div>
+
+  <main>
+    <div class="main-content">
+      <h1>Secret Info</h1>
+      <div class="message-container"></div>
+    </div>
+
+    <div class="decrypt-modal" id="decrypt-modal">
+      <input type="text" id="otp" placeholder="Enter OTP">
+      <button id="decrypt-button">Decrypt</button>
+      <button id="close-button">Close</button>
+    </div>
+
+    <!-- create a new section where it has a input that will change the messages -->
+    <section class="main-content hidden" id="edit-section">
+      <h2>Edit Message</h2>
+      <input type="text" id="edit-message" class="editInput" placeholder="Enter new message">
+      <button id="edit-button">Edit</button>
+    </section>
+  </main>
+  <script type="text/javascript" src="scripts/auth/logout.js"></script>
+  <script type="text/javascript" src="scripts/cryptography/otp.js"></script>
+  <script type="text/javascript" src="scripts/data/messages.js"></script>
+  <script type="text/javascript" src="scripts/components/notification.js"></script>
+  <script type="text/javascript" src="scripts/components/edit-message.js"></script>
+  <script type="text/javascript" src="scripts/components/check_auth.js"></script>
+</body>
+
+</html>
