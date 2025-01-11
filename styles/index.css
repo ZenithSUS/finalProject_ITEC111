@@ -26,4 +26,59 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5), 0px -4px 4px rgba(0, 0, 0, 0.5);
     padding: 10px;
     border-radius: 10px;
+    width: fit-content;
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+
+.add-message-modal {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: var(--secondary-color);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5), 0px -4px 4px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    width: fit-content;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        h3 {
+            text-align: center;
+        }
+
+        label {
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px 10px;
+            border-radius: 10px;
+        }
+
+        .input-field {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+    }
 }

@@ -56,6 +56,7 @@ const updateMessage = (updatedMessage, id) => {
     message: updatedMessage,
   };
 
+  // Update the message
   localStorage.setItem(
     "messages",
     JSON.stringify([
@@ -64,16 +65,22 @@ const updateMessage = (updatedMessage, id) => {
     ])
   );
 
+  // Get the updated messages
   const newMsgs = JSON.parse(localStorage.getItem("messages"));
 
+  // Update the OTP for the updated message
   messages = newMsgs.map((msg) => {
-    const otp = generateOTP(msg.message.length);
+    // If the message is the updated message, update the OTP
     if (msg.id === id) {
+    // Generate a new OTP
+    const otp = generateOTP(msg.message.length);
       return {
         ...msg,
         message: otpEncryptCipher(updatedMessage, otp),
         otp,
+        date: new Date(),
       };
+    // If the message is not the updated message, return it as is
     } else {
       return msg;
     }
@@ -84,17 +91,18 @@ const updateMessage = (updatedMessage, id) => {
 
 // Function to delete a message
 const deleteMessage = (messageId) => {
-  if (!confirm("Are you sure you want to delete this message?")) return;
-
   const messages = getMessages();
-  const messageIndex = messages.findIndex(
-    (message) => message.id === messageId
-  );
+  // Get the index of the message
+  const messageIndex = messages.findIndex((message) => message.id === messageId);
+  console.log(messageIndex);
+  // Delete the message base on the id
   messages.splice(messageIndex, 1);
   localStorage.setItem("messages", JSON.stringify(messages));
   displayMessages();
 };
 
+
+// Function to display messages
 const displayMessages = () => {
   const messages = getMessages();
   const messageContainer = document.querySelector(".message-container");
@@ -116,7 +124,7 @@ const displayMessages = () => {
                 }">Edit</button>
                 <button class="delete-button" data-id="${
                   message.id
-                }" onclick="deleteMessage(${message.id})">Delete</button>
+                }">Delete</button>
             </td>
         </tr>
     `
@@ -124,6 +132,8 @@ const displayMessages = () => {
     .join("");
 };
 
+
+// Function to display a single message
 const displayMessage = (messageId) => {
   const message = getMessagesById(messageId);
   console.log(message);
@@ -145,6 +155,7 @@ const displayMessage = (messageId) => {
     `;
 };
 
+// Function to format date
 const DateFormat = (date) => {
   const newDate = new Date(date);
   const dateFormat =
@@ -155,3 +166,41 @@ const DateFormat = (date) => {
     newDate.getFullYear();
   return dateFormat;
 };
+
+
+// Function to add a new message
+const addMessage = (message) => {
+  const otp = generateOTP(message.length);
+  const newMessage = {
+    id: getMessages().length + 1,
+    username: JSON.parse(localStorage.getItem("userInfo")).username,
+    message: otpEncryptCipher(message, otp),
+    otp,
+    date: new Date(),
+  };
+  insertMessage(newMessage);
+  displayMessages();
+};
+
+// Function to sort messages by date
+const sortMessagesByDate = () => {
+  const messages = getMessages();
+  messages.sort((a, b) => new Date(b.date) - new Date(a.date));
+  localStorage.setItem("messages", JSON.stringify(messages));
+  displayMessages();
+};
+
+// Function to sort messages by username
+const sortMessagesByUsername = () => {
+  const messages = getMessages();
+  messages.sort((a, b) => a.username.localeCompare(b.username));
+  localStorage.setItem("messages", JSON.stringify(messages));
+  displayMessages();
+};
+
+const sortMessagesByCipheredMessage = () => {
+    const messages = getMessages();
+    messages.sort((a, b) => b.message.length - a.message.length);
+    localStorage.setItem("messages", JSON.stringify(messages));
+    displayMessages();
+}

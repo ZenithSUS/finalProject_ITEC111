@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelector("#edit-button").addEventListener("click", () => {
     updateMessage(editInput.value, messageId);
-    window.location.href = `index.html`;
+    window.location.href = `index.html?message=Message updated successfully`;
   });
 
   // Decrypt the message

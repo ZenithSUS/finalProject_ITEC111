@@ -42,14 +42,34 @@
         </div>
 
         <div class="message-options">
-            <h3>Add Message</h3>
-            <button id="add-message">Add Message</button>
+            <h3>Data Options</h3>
+            <div class="button-container">
+                <button id="add-message">Add Message</button>
+                <button id="sort-by-username">Sort by Username</button>
+                <button id="sort-by-date">Sort by Date</button>
+                <button id="sort-by-ciphered">Sort by Cipher Strength</button>
+            </div>
+        </div>
+
+        <div class="add-message-modal">
+            <form id="addMessageForm">
+                <h3>Add Message</h3>
+                <div class="input-field">
+                    <label for="message">Message</label>
+                    <input type="text" id="message">
+                    <span id="message-error"></span>
+                </div>
+                <div class="button-container">
+                    <button type="button" id="confirm-message-button">Confirm</button>
+                    <button type="button" id="cancel-message-button">Cancel</button>
+                </div>
+            </form>
         </div>
     </main>
     <script type="text/javascript" src="scripts/auth/logout.js"></script>
     <script type="text/javascript" src="scripts/cryptography/otp.js"></script>
-    <script type="text/javascript" src="scripts/data/messages.js"></script>
     <script type="text/javascript" src="scripts/components/notification.js"></script>
+    <script type="text/javascript" src="scripts/data/messages.js"></script>
     <script type="text/javascript" src="scripts/components/index.js"></script>
     <script type="text/javascript" src="scripts/components/check_auth.js"></script>
 </body>

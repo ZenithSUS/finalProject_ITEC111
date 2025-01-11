@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         const decryptedMessage = otpDecryptCipher(message.message, otp);
+        document.querySelector('#decrypt-modal').style.display = 'none';
         showMesage(`Decrypted Message: ${decryptedMessage}`);  
     });
 
