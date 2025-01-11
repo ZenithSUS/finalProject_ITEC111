@@ -20,7 +20,9 @@ input {
 span {
     color: red;
     font-weight: 600;
+    font-size: 12px;
     letter-spacing: 2px;
+    padding-top: 5px;
 }
 
 body {
@@ -33,6 +35,11 @@ button {
     border-radius: 20px;
     width: 100px;
     cursor: pointer;
+}
+
+a {
+    text-decoration: underline;
+    color: var(--button-color);
 }
 
 header {

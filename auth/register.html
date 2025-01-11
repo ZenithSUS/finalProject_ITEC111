@@ -5,31 +5,33 @@
     <link rel="stylesheet" href="../global.css">
     <link rel="stylesheet" href="../styles/auth.css">
     <link rel="icon" href="../src/images/CyberGhost.jpg">
-    <title>Login</title>
-    <script type="text/javascript" src="../scripts/notification.js"></script>
+    <title>Register</title>
 </head>
 <body>
-    <div class="modal-notification" id="modal-notification">
-        <div class="modal-content" id="modal-content"></div>
-    </div>
-
     <div class="auth-container">
-        <form id="loginForm">
+        <form id="registerForm">
             <h1>Login</h1>
             <div class="input-field">
                 <label for="username">Username</label>
                 <input type="text" id="username">
+                <span class="error-message" id="username-error"></span>
             </div>
             <div class="input-field">
                 <label for="password">Password</label>
                 <input type="password" id="password">
+                <span class="error-message" id="password-error"></span>
             </div>
-            <button type="submit">Login</button>
+            <div class="input-field">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" id="confirm_password">
+                <span class="error-message" id="confirm-password-error"></span>
+            </div>
+            <button type="submit">Register</button>
             <span id="auth-status"></span>
-            <p>Don't have an account? <a href="register.html" target="_parent">Sign up</a></p>
+            <p>Already have an account? <a href="login.html">Sign in</a></p>
         </form>
     </div>
-    <script type="text/javascript" src="../scripts/auth/login.js"></script>
+    <script type="text/javascript" src="../scripts/auth/register.js"></script>
     <script type="text/javascript" src="../scripts/cryptography/rsa.js"></script>
     <script type="text/javascript" src="../scripts/data/users.js"></script>
 </body>
