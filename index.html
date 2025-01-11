@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <title>CyberGhost</title>
     <script type="text/javascript" src="scripts/components/notification.js"></script>
 </head>
+
 <body>
     <header>
         <div class="logo">
@@ -16,7 +18,6 @@
             <h1>CyberGhost</h1>
         </div>
         <div class="user-auth">
-            <h2 id="usernameDisplay"></h2>
             <button id="logout">Logout</button>
         </div>
     </header>
@@ -46,11 +47,15 @@
 
     <script type="text/javascript">
         const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-        const id = userInfo ? userInfo.id : null;
-        const username = userInfo ? userInfo.username : 'Guest';
-        document.getElementById('usernameDisplay').textContent = username;
+        const id = userInfo || null;
+        const username = userInfo.username || 'Guest';
+        const authContainer = document.querySelector('.user-auth');
+        const h2 = document.createElement('h2');
+        h2.textContent = `Welcome, ${username}`;
+        authContainer.prepend(h2);
 
-        if(id === null) {
+
+        if (id === null) {
             window.location.href = 'auth/login.html';
         }
     </script>
@@ -58,4 +63,5 @@
     <script type="text/javascript" src="scripts/cryptography/otp.js"></script>
     <script type="text/javascript" src="scripts/data/messages.js"></script>
 </body>
+
 </html>
