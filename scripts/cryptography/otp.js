@@ -61,5 +61,3 @@ const otpDecryptCipher = (ciphertext, otp) => {
     }
     return plaintext;
 };
-
-const otp = generateOTP(Math.floor(Math.random() * 10) + 1);
