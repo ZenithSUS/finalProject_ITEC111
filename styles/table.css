@@ -14,5 +14,10 @@
         background-color: var(--primary-color);
         text-align: center;
         font-weight: bold;
+        border: 1px solid var(--secondary-color);
+    }
+
+    tr:nth-child(even) {
+        background-color: var(--primary-color);
     }
 }
