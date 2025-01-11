@@ -61,7 +61,7 @@ function generateRSAKeys() {
     const phi = (p - 1) * (q - 1);
 
     // Choose an e that is relatively prime to phi
-    let e = 3;
+    let e = 65537; // Higher initial value for e
 
     // Ensure that e is relatively prime to phi
     while (gcd(e, phi) !== 1) {

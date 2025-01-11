@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector("#loginForm");
     const users = getUsers();
-
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 

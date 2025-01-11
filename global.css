@@ -1,7 +1,8 @@
 :root {
-  --primary-color: #141d2f;
-  --secondary-color: #1e2a47;
-  --button-color: #0079d3;
+    --primary-color: #141D2F;
+    --secondary-color: #1E2A47;
+    --button-color: #0079D3;
+    --button-hover-color: #0056b3;
 }
 
 * {
@@ -30,16 +31,25 @@ body {
 }
 
 button {
-  background-color: var(--button-color);
-  padding: 10px;
-  border-radius: 20px;
-  width: 100px;
-  cursor: pointer;
+    background-color: var(--button-color);
+    padding: 10px;
+    border-radius: 20px;
+    width: 100px;
+    cursor: pointer;
+
+    &:hover {
+        transition: background-color 0.2s ease-in-out;
+        background-color: var(--button-hover-color);
+    }
 }
 
 a {
-  text-decoration: underline;
-  color: var(--button-color);
+    text-decoration: underline;
+    color: var(--button-color);
+
+    &:hover {
+        color: var(--button-hover-color);
+    }
 }
 
 header {
@@ -59,6 +69,15 @@ header {
       font-size: 1.25rem;
     }
   }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 20px;
 }
 
 .modal-notification {

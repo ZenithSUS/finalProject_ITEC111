@@ -1,0 +1,18 @@
+.message-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: var(--primary-color);
+        text-align: center;
+        font-weight: bold;
+    }
+}

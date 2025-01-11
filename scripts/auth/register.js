@@ -21,6 +21,12 @@ form.addEventListener('submit', (e) => {
     if (passwordInput.value.trim() === '') {
         passwordError.textContent = 'Password is required';
         hasError = true;
+    } else if (passwordInput.value.length < 8) {
+        passwordError.textContent = 'Password must be at least 8 characters';
+        hasError = true;
+    } else if (!/[A-Z]/.test(passwordInput.value)) {
+        passwordError.textContent = 'Password must contain at least one uppercase letter';
+        hasError = true;
     } else {
         passwordError.textContent = '';
     }
