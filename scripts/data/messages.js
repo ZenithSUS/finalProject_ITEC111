@@ -19,6 +19,13 @@ const getMessages = () => {
     return messages;
 }
 
+// Function to get users from localStorage or initialize with default users
+const getMessagesById = (id) => {
+    const messages = getMessages();
+    const message = messages.find(message => message.id === id);
+    return message;
+}
+
 // Function to insert a new message
 const insertMessage = (newMessage) => {
     const messages = getMessages();
@@ -53,7 +60,7 @@ const displayMessages = () => {
             <td>${message.otp}</td>
             <td>${DateFormat(message.date)}</td>
             <td>
-                <button class="open-button" data-id="${message.id}">View</button>
+                <button class="open-button" id="open-button" data-id="${message.id}">View</button>
                 <button class="edit-button" data-id="${message.id}">Edit</button>
                 <button class="delete-button" data-id="${message.id}">Delete</button>
             </td>
@@ -61,10 +68,27 @@ const displayMessages = () => {
     `).join('');
 }
 
+const displayMessage = (messageId) => {
+    const message = getMessagesById(messageId);
+    console.log(message);
+    const messageContainer = document.querySelector('.message-container');
+    messageContainer.innerHTML = `
+       <div class="message">
+           <h2>Ciphered Message: ${message.message}</h2>
+           <p>Message By: ${message.username}</p>
+           <p>OTP: ${message.otp}</p>
+           <p>Date: ${DateFormat(message.date)}</p>
+           <strong>Open the message to decrypt</strong>
+           <div class="button-container">
+                <button class="open-button" id="decrypt-button" data-id="${message.id}">Unlock Message</button>
+                <button class="close-button">Close</button>
+           </div>
+       </div>
+    `;
+}
+
 const DateFormat = (date) => {
     const newDate = new Date(date);
     const dateFormat = newDate.toLocaleString('default', { month: 'short' }) + ' ' + newDate.getDate() + ' '  + newDate.getFullYear();
     return dateFormat;
 }
-
-displayMessages();

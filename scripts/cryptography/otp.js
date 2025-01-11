@@ -1,6 +1,8 @@
+// Define the letters and their length
 const letters = "abcdefghijklmnopqrstuvwxyz";
 const letter_length = letters.length;
 
+// Function to generate a random OTP
 const generateOTP = (length) => {
     let otp = '';
     // Loop through the length of the OTP
@@ -11,6 +13,7 @@ const generateOTP = (length) => {
     return otp;
 };
 
+// Function to encrypt a message
 const otpEncryptCipher = (plaintext, otp) => {
     // Check if the plaintext and OTP are the same length
     if ((plaintext.length != otp.length) || plaintext === '') {
@@ -34,6 +37,7 @@ const otpEncryptCipher = (plaintext, otp) => {
     return ciphertext;
 };
 
+// Function to decrypt a message
 const otpDecryptCipher = (ciphertext, otp) => {
     if ((ciphertext.length != otp.length) || ciphertext === '') {
         return;
