@@ -2,6 +2,7 @@
     --primary-color: #141D2F;
     --secondary-color: #1E2A47;
     --button-color: #0079D3;
+    --button-hover-color: #0056b3;
 }
 
 * {
@@ -35,11 +36,20 @@ button {
     border-radius: 20px;
     width: 100px;
     cursor: pointer;
+
+    &:hover {
+        transition: background-color 0.2s ease-in-out;
+        background-color: var(--button-hover-color);
+    }
 }
 
 a {
     text-decoration: underline;
     color: var(--button-color);
+
+    &:hover {
+        color: var(--button-hover-color);
+    }
 }
 
 header {
@@ -54,6 +64,15 @@ header {
         align-items: center;
         gap: 10px;
     }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    width: 100%;
 }
 
 .modal-notification {

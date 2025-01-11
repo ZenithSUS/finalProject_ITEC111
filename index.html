@@ -3,6 +3,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/table.css">
     <link rel="icon" href="src/images/CyberGhost.jpg">
     <title>Message Saver</title>
     <script type="text/javascript" src="scripts/notification.js"></script>
@@ -23,6 +25,22 @@
         <div class="modal-content" id="modal-content"></div>
     </div>
 
+    <main>
+        <div class="main-content">
+            <h1>Message Saver</h1>
+            <table class="message-table">
+                <thead>
+                    <tr>
+                        <th>Message ID</th>
+                        <th>Ciphered Message</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="message-container"></tbody>
+            </table>
+        </div>
+    </main>
+
     <script type="text/javascript">
         const userInfo = JSON.parse(localStorage.getItem('userInfo'));
         const id = userInfo ? userInfo.id : null;
@@ -34,5 +52,7 @@
         }
     </script>
     <script type="text/javascript" src="scripts/auth/logout.js"></script>
+    <script type="text/javascript" src="scripts/cryptography/otp.js"></script>
+    <script type="text/javascript" src="scripts/data/messages.js"></script>
 </body>
 </html>
