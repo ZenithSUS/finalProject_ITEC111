@@ -33,13 +33,14 @@
   }
 }
 
+#edit-section {
+  display: none;
+}
+
 .editInput {
   padding: 10px;
 }
 
-.main-content.hidden {
-  display: none;
-}
 
 .decrypt-modal {
   display: none;
@@ -86,6 +87,20 @@
     input[type="text"] {
       padding: 5px;
       margin: 5px;
+    }
+  }
+  
+  #edit-section {
+    h2 {
+      text-align: center;
+    }
+    .editInput {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    
+    button {
+      width: 100%;
     }
   }
 
