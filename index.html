@@ -26,8 +26,8 @@
 
     <script type="text/javascript">
         const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-        const id = userInfo ? userInfo.id : null;
-        const username = userInfo ? userInfo.username : 'Guest';
+        const id = userInfo || null;
+        const username = userInfo.username || 'Guest';
         const authContainer = document.querySelector('.user-auth');
         const h2 = document.createElement('h2');
         h2.textContent = `Welcome, ${username}`;
