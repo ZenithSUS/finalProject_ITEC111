@@ -32,6 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('message-error').innerHTML = '';
   });
 
+  // Add event listener to sort messages by id
+  document.querySelector("#sort-by-id").addEventListener("click", () => {
+    sortMessagesById();
+    messageOptions();
+  });
+
   // Add event listener to sort messages by date
   document.querySelector("#sort-by-date").addEventListener("click", () => {
     sortMessagesByDate();

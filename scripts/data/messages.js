@@ -182,6 +182,14 @@ const addMessage = (message) => {
   displayMessages();
 };
 
+// Function to sort messages by id 
+const sortMessagesById = () => {
+  const messages = getMessages();
+  messages.sort((a, b) => a.id - b.id);
+  localStorage.setItem("messages", JSON.stringify(messages));
+  displayMessages();
+};
+
 // Function to sort messages by date
 const sortMessagesByDate = () => {
   const messages = getMessages();
