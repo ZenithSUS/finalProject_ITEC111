@@ -24,6 +24,12 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log(messageId);
 
   document.querySelector("#edit-button").addEventListener("click", () => {
+    const message = getMessagesById(messageId);
+    if(otpDecryptCipher(message.message, message.otp) === editInput.value) {
+      showMesage("Message is the same as before!");
+      return;
+    }
+
     updateMessage(editInput.value, messageId);
     window.location.href = `index.html?message=Message updated successfully`;
   });

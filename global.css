@@ -43,6 +43,32 @@ button {
   }
 }
 
+button:disabled {
+  cursor: not-allowed;
+  background-color: gray;
+
+  &:hover {
+    background-color: gray;
+  }
+}
+
+.view-button {
+  background-color: green;  
+
+  &:hover {
+    background-color: darkgreen;
+  }
+}
+
+.delete-button {
+  background-color: red;
+
+  &:hover {
+    background-color: darkred;
+  }
+}
+
+
 a {
   text-decoration: underline;
   color: var(--button-color);

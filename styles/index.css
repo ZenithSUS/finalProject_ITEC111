@@ -87,6 +87,21 @@
     }
 }
 
+.pagination {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: var(--secondary-color);
+
+    .pagination-controls {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
 /* Media Queries */
 
 @media (max-width: 915px) {

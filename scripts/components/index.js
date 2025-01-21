@@ -1,5 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+  // Add event listener to next and previous page buttons
+  nextPage.addEventListener("click", () => changePage(1));
+  prevPage.addEventListener("click", () => changePage(-1));
+
+  // Display messages on page load
+  displayMessages(1);
+
   // Add event listener to add message button
   document.querySelector("#add-message").addEventListener("click", () => {
     document.querySelector(".add-message-modal").style.display = "block";
@@ -56,49 +63,59 @@ document.addEventListener("DOMContentLoaded", () => {
     messageOptions();
   });
 
+  messageOptions();
+});
 
-  // Add event listener to view messages button
-  function messageOptions() {
-    const viewMessagesButton = document.querySelectorAll(".open-button");
+// Add event listener to view messages button
+function messageOptions() {
+  const viewMessagesButton = document.querySelectorAll(".view-button");
   
-    if (viewMessagesButton) {
-      viewMessagesButton.forEach((button) =>
+  if (viewMessagesButton) {
+    viewMessagesButton.forEach((button) =>
+      button.addEventListener("click", () => {
+        const messageId = button.getAttribute("data-id");
+        window.location.href = `message.html?id=${messageId}`;
+      })
+    );
+  }
+
+  const editMessageButton = document.querySelectorAll(".edit-button");
+
+  if (editMessageButton) {
+    editMessageButton.forEach((button) =>
         button.addEventListener("click", () => {
           const messageId = button.getAttribute("data-id");
-          window.location.href = `message.html?id=${messageId}`;
+          window.location.href = `edit.html?id=${messageId}`;
         })
       );
     }
 
-    const editMessageButton = document.querySelectorAll(".edit-button");
+    const deleteMessageButton = document.querySelectorAll(".delete-button");
 
-    if (editMessageButton) {
-        editMessageButton.forEach((button) =>
+    if (deleteMessageButton) {
+        deleteMessageButton.forEach((button) =>
           button.addEventListener("click", () => {
-            const messageId = button.getAttribute("data-id");
-            window.location.href = `edit.html?id=${messageId}`;
+            if(!confirm("Are you sure you want to delete this message?")) return;
+              
+            showMesage("Message deleted successfully");
+            const messageId = parseInt(button.getAttribute("data-id"));
+            deleteMessage(messageId);
+            messageOptions();
           })
         );
       }
+    
+      
+  }
 
-      const deleteMessageButton = document.querySelectorAll(".delete-button");
+const changePage = (direction) => {
+  currentPage += direction;
 
-      if (deleteMessageButton) {
-          deleteMessageButton.forEach((button) =>
-            button.addEventListener("click", () => {
-              if(!confirm("Are you sure you want to delete this message?")) return;
-              
-              showMesage("Message deleted successfully");
-              const messageId = parseInt(button.getAttribute("data-id"));
-              deleteMessage(messageId);
-              messageOptions();
-            })
-          );
-        }
-    }
-
-
-  // Function to display messages
-  displayMessages();
+  checkPage(currentPage);
+  displayMessages(currentPage);
   messageOptions();
-});
+};
+
+
+
+
