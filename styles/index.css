@@ -126,4 +126,17 @@
             
         }
     }
+    
+    .pagination, .pagination-controls {
+      width: 100%;
+      
+      .pagination-controls > button {
+        width: 100%;
+      }
+     
+      .pagination-controls > h3 {
+        text-align: center;
+        width: 100%;
+      }
+    }
 }
