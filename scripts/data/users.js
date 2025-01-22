@@ -25,14 +25,15 @@ const getUsers = () => {
 }
 
 // Function to update a user's information
-const updateUser = (updatedUser) => {
+const updateUser = (updatedUser, newPassword = null) => {
+    console.log(updatedUser);
     const users = getUsers();
     const userIndex = users.findIndex(user => user.username === updatedUser.username);
 
     // If the user exists, update their information
     if (userIndex !== -1) {
         // Encrypt the updated password before storing
-        updatedUser.password = encrypt(updatedUser.password, publicKey);
+        updatedUser.password = encrypt(newPassword, publicKey);
         users[userIndex] = updatedUser;
         localStorage.setItem('users', JSON.stringify(users));
         console.log('User updated:', updatedUser);

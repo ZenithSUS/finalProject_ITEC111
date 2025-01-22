@@ -27,6 +27,9 @@ form.addEventListener('submit', (e) => {
     } else if (!/[A-Z]/.test(passwordInput.value)) {
         passwordError.textContent = 'Password must contain at least one uppercase letter';
         hasError = true;
+    } else if (!/[a-z]/.test(passwordInput.value)) {
+        passwordError.textContent = 'Password must contain at least one lowercase letter';
+        hasError = true;
     } else {
         passwordError.textContent = '';
     }

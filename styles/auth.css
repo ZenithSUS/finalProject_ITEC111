@@ -12,7 +12,7 @@
         background-color: var(--secondary-color);
         padding: 20px;
         border-radius: 20px;
-        width: 400px;
+        width: 500px;
 
         h1 {
             text-align: center;
@@ -34,6 +34,56 @@
             flex-direction: column;
             gap: 2px;
             width: 100%;
+        }
+
+        .otp-field {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 2px;
+            width: 100%;
+
+            button {
+                width: fit-content;
+                padding: 10px 10px;
+                margin-top: 10px;
+            }
+
+            .generated-otp {
+                width: 100%;
+                padding: 10px 10px;
+                border-radius: 10px;
+                text-align: center;
+                margin: 10px 0;
+                background-color: var(--primary-color);
+            }
+        }
+
+        .button-options {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            gap: 10px;
+
+            button {
+                width: fit-content; 
+            }
+        }
+
+        .login-links {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        
+        .otp-char {
+            text-align: center;
+            text-decoration: line-through; 
+            color: white; 
+            font-weight: 600; 
+            font-size: 18px;
         }
     }
 }

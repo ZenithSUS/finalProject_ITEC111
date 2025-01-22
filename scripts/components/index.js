@@ -12,6 +12,25 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".add-message-modal").style.display = "block";
   });
 
+
+  // If the user clicks enter, add the message
+  document.querySelector("#addMessageForm").addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      const message = document.getElementById("message").value.trim();
+
+      if(message === "") {
+        document.getElementById('message-error').innerHTML = 'Message cannot be empty!';
+        return;
+      }
+
+      showMesage("Message added successfully");
+      addMessage(message);
+      document.getElementById("message").value = "";
+      document.querySelector(".add-message-modal").style.display = "none";
+      messageOptions();
+    }
+  });
+
   // Add event listener to add confirm button
   document.querySelector("#confirm-message-button").addEventListener("click", () => {
     const message = document.getElementById("message").value.trim();
@@ -20,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById('message-error').innerHTML = 'Message cannot be empty!';
       return;
     }
+
 
     showMesage("Message added successfully");
     addMessage(message);

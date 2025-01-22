@@ -105,7 +105,7 @@ const deleteMessage = (messageId) => {
   // Delete the message base on the id
   messages.splice(messageIndex, 1);
   localStorage.setItem("messages", JSON.stringify(messages));
-  checkPage();
+  checkPage(currentPage);
   displayMessages(currentPage);
 };
 

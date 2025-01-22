@@ -18,12 +18,22 @@ input {
   color: black;
 }
 
+input:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 span {
   color: red;
   font-weight: 600;
   font-size: 12px;
   letter-spacing: 2px;
   padding-top: 5px;
+}
+
+.error-message {
+  display: block;
+  color: red;
 }
 
 body {
