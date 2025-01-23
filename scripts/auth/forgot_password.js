@@ -60,6 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
         usernameInput.value = "";
         passwordInput.value = "";
         confirmPasswordInput.value = "";
+        passwordError.textContent = '';
+        confirmPasswordError.textContent = '';
+        otpError.textContent = '';
     });
 
     form.addEventListener('submit', (e) => {
@@ -159,6 +162,11 @@ document.addEventListener('DOMContentLoaded', () => {
         confirmPasswordError.textContent = '';
         document.getElementById("auth-status").textContent = '';
     });
+    
+    otpInput.addEventListener('input', () => {
+      otpError.textContent = '';
+      document.getElementById("auth-status").textContent = '';
+    })
 });
 
 
