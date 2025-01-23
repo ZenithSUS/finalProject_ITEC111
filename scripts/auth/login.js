@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Decrypt the stored password and compare with the input password
             if(password === decrypt(foundUser.password, privateKey)) {
                 localStorage.setItem('userInfo', JSON.stringify({id: foundUser.id, username: foundUser.username}));
-                updateUser(foundUser, password);
+  
                 window.location.href = `../index.html?message=${"Logged in successfully!"}`;
             } else {
                 document.getElementById("auth-status").textContent = "Wrong Username or Password";
