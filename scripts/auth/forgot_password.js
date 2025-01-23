@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         usernameInput.value = "";
         passwordInput.value = "";
         confirmPasswordInput.value = "";
+        otpInput.value = "";
         passwordError.textContent = '';
         confirmPasswordError.textContent = '';
         otpError.textContent = '';
