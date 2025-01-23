@@ -26,7 +26,7 @@ const getUsers = () => {
 
 // Function to update a user's information
 const updateUser = (updatedUser, newPassword = null) => {
-    console.log(updatedUser);
+
     const users = getUsers();
     const userIndex = users.findIndex(user => user.username === updatedUser.username);
 

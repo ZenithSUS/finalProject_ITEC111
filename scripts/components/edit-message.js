@@ -19,10 +19,20 @@ document.addEventListener("DOMContentLoaded", () => {
   // Open the decryption modal
   document.querySelector("#decrypt-button").addEventListener("click", () => {
     document.getElementById("decrypt-modal").style.display = "block";
+    editSection.style.display = "none";
   });
 
   console.log(messageId);
 
+  // Add an event when the user press enter in editing message
+  document.querySelector("#edit-section").addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      document.querySelector("#edit-section #edit-button").click();
+    }
+  });
+
+  // Edit the message
   document.querySelector("#edit-button").addEventListener("click", () => {
     const message = getMessagesById(messageId);
     if(otpDecryptCipher(message.message, message.otp) === editInput.value) {
@@ -32,6 +42,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateMessage(editInput.value, messageId);
     window.location.href = `index.html?message=Message updated successfully`;
+  });
+
+  // Add an event when the user press enter in unlocking message
+  document.querySelector("#decrypt-modal").addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      document.querySelector("#decrypt-modal #decrypt-button").click();
+    }
   });
 
   // Decrypt the message
@@ -45,10 +63,15 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
       document.querySelector("#decrypt-modal").style.display = "none";
+      document.getElementById("otp").value = "";
       editSection.style.display = "block";
       const decryptedMessage = otpDecryptCipher(message.message, otp);
       editInput.value = decryptedMessage;
-      // showMesage(`Decrypted Message: ${decryptedMessage}`);
+      updateMessage(decryptedMessage, messageId);
+
+      const newMessage = getMessagesById(messageId);
+      document.getElementById("message-text").innerHTML = `Ciphered Message: ${newMessage.message}`;
+      document.getElementById("otp-text").innerHTML = `OTP: ${newMessage.otp}`;
     });
 
   // Close the modal in decryption process

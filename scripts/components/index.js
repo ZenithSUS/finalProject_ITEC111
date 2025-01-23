@@ -16,23 +16,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // If the user clicks enter, add the message
   document.querySelector("#addMessageForm").addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
-      const message = document.getElementById("message").value.trim();
-
-      if(message === "") {
-        document.getElementById('message-error').innerHTML = 'Message cannot be empty!';
-        return;
-      }
-
-      showMesage("Message added successfully");
-      addMessage(message);
-      document.getElementById("message").value = "";
-      document.querySelector(".add-message-modal").style.display = "none";
-      messageOptions();
+      event.preventDefault();
+      document.querySelector("#confirm-message-button").click();
     }
   });
 
   // Add event listener to add confirm button
-  document.querySelector("#confirm-message-button").addEventListener("click", () => {
+  document.querySelector("#confirm-message-button").addEventListener("click", (e) => {
+    e.preventDefault();
     const message = document.getElementById("message").value.trim();
 
     if(message === "") {
@@ -51,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Add event listener to cancel add message button
   document.querySelector("#cancel-message-button").addEventListener("click", () => {
       document.getElementById("message").value = "";
+      document.getElementById('message-error').innerHTML = '';
       document.querySelector(".add-message-modal").style.display = "none";
     });
 

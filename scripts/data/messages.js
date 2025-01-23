@@ -142,12 +142,22 @@ const displayMessage = (messageId) => {
   const message = getMessagesById(messageId);
   console.log(message);
   const messageContainer = document.querySelector(".message-container");
+
+  if(!message) {
+    messageContainer.innerHTML = `
+       <div class="message">
+           <h2 id="message-text">Message not found</h2>
+       </div>
+    `;
+    return;
+  }
+  
   messageContainer.innerHTML = `
        <div class="message">
-           <h2>Ciphered Message: ${message.message}</h2>
+           <h2 id="message-text">Ciphered Message: ${message.message}</h2>
            <p>Message By: ${message.username}</p>
-           <p>OTP: ${message.otp}</p>
-           <p>Date: ${DateFormat(message.date)}</p>
+           <p id="otp-text">OTP: ${message.otp}</p>
+           <p id="date-text">Date Created: ${DateFormat(message.date)}</p>
            <strong style="text-align: center;">Open the message to decrypt</strong>
            <div class="button-container">
                 <button class="open-button" id="decrypt-button" data-id="${
@@ -217,6 +227,7 @@ const sortMessagesByUsername = () => {
   displayMessages(currentPage);
 };
 
+// Function to sort messages by ciphered message
 const sortMessagesByCipheredMessage = () => {
     const messages = getMessages();
     messages.sort((a, b) => b.message.length - a.message.length);
@@ -234,9 +245,19 @@ const getPaginatedMessages = (page = 1, pageSize = 5) => {
   return messages.slice(start, end);
 };
 
+// Function to check page
 const checkPage = (currentPage = 1) => {
   currentPage === 1 ? prevPage.disabled = true : prevPage.disabled = false;
   currentPage === totalPages() ? nextPage.disabled = true : nextPage.disabled = false;
 }
 
-checkPage(currentPage);
+// Function to get the current url
+const current_url_location = () => {
+    const pathname = window.location.pathname;
+    const lastsegment = pathname.split('/').pop();
+    return lastsegment;
+}
+
+if(current_url_location() === "index.html"){
+   checkPage(currentPage);
+}
