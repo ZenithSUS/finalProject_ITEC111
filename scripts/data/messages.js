@@ -105,6 +105,13 @@ const deleteMessage = (messageId) => {
   // Delete the message base on the id
   messages.splice(messageIndex, 1);
   localStorage.setItem("messages", JSON.stringify(messages));
+
+  // If the current page has the deleted message and that page is empty
+  // go to the previous page
+  if(currentPage > 1 && getPaginatedMessages(currentPage, pageSize).length === 0) {
+    currentPage -= 1;
+  }
+
   checkPage(currentPage);
   displayMessages(currentPage);
 };
